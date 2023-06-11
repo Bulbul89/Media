@@ -1,27 +1,31 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchUsers } from "../store/thunks/fetchUsers";
+import React from "react";
 
 function UsersList() {
     const dispatch = useDispatch();
-    const { data , isLoading, error } = useSelector( (state) => {
-        return state.users
-    })
     useEffect(() => {
         dispatch(fetchUsers())
-    },[dispatch])
-    if(isLoading){
+    }, [dispatch])
+    const { data, isLoading, error } = useSelector((state) => {
+        return state.users
+    });
+   if(isLoading){
         return <div>
             Loading.....
         </div>
     } 
     if(error){
-        <div>
+       return <div>
             error fetching data.....
         </div>
     }
-    return <div> 
-        {data.length}
-    </div>
+
+    return (<div> 
+       usersList
+    </div>) 
+   
+   
 }
 export default UsersList;
