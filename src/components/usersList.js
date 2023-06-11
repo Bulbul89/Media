@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../store/thunks/fetchUsers";
+import { fetchUsers } from '../store';
 
 function UsersList() {
     const dispatch = useDispatch();
@@ -22,4 +22,8 @@ function UsersList() {
       return <div>{data.length}</div>;
     }
     
-    export default UsersList;
+export default UsersList;
+    
+
+
+
