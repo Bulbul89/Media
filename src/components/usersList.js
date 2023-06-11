@@ -9,19 +9,17 @@ function UsersList() {
     })
     useEffect(() => {
         dispatch(fetchUsers())
-    },[dispatch])
-    if(isLoading){
-        return <div>
-            Loading.....
-        </div>
-    } 
-    if(error){
-        <div>
-            error fetching data.....
-        </div>
+    }, [dispatch])
+    
+    if (isLoading) {
+        return <div>Loading...</div>;
+      }
+    
+      if (error) {
+        return <div>Error fetching data...</div>;
+      }
+    
+      return <div>{data.length}</div>;
     }
-    return <div> 
-        {data.length}
-    </div>
-}
-export default UsersList;
+    
+    export default UsersList;
