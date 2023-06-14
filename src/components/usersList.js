@@ -1,29 +1,37 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUsers } from "../store/thunks/fetchUsers";
+import { fetchUsers } from "../store";
+import Skeleton from "./Skeleton";
 import React from "react";
 
 function UsersList() {
     const dispatch = useDispatch();
+    const { isLoading, data, error } = useSelector((state) => {
+        return state.users;
+    });
+
     useEffect(() => {
         dispatch(fetchUsers())
     }, [dispatch])
-    const { data, isLoading, error } = useSelector((state) => {
-        return state.users
-    });
+
+
    if(isLoading){
-        return <div>
-            Loading.....
-        </div>
+        return <Skeleton times={6} className='h-10 w-full' />
     } 
     if(error){
        return <div>
             error fetching data.....
         </div>
     }
-
+    const renderedUsers = data.map( (user) => {
+        return <div key={user.id} className="mb-2 border rounded">
+            <div className="flex p-2 justify-between items-center cursor-pointer">
+                {user.name}
+            </div>
+        </div>
+    })
     return (<div> 
-       {data.length}
+       {renderedUsers}
     </div>) 
    
    
