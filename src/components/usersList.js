@@ -23,7 +23,7 @@ function UsersList() {
     }
 
     return (<div> 
-       usersList
+       {data.length}
     </div>) 
    
    
