@@ -3,7 +3,7 @@ import React from "react";
 
 function Skeleton ({ times, className }) {
     const outerClassNames = classNames(
-        "relative",
+        'relative',
         'overflow-hidden',
         'bg-gray-200',
         'rounded',
@@ -28,10 +28,10 @@ function Skeleton ({ times, className }) {
 //  }   
 //  return boxes;
 
-const boxes =Array(times).fill(0).map( (_, i) => {
+const boxes = Array(times).fill(0).map( (_, i) => {
     return <div key={i} className={outerClassNames}>
 
-        <div className={innerClassNames}/>
+        <div className={innerClassNames} />
     </div>
 })
 
