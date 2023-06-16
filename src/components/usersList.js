@@ -21,8 +21,15 @@ function UsersList() {
 
 
    if(isLoading){
-        return <Skeleton times={6} className='h-10 w-full'/>
+        return <Skeleton times={6} className="h-10 w-full"/>
     } 
+
+    
+    if(error){
+        return <div>
+             error fetching data.....
+         </div>
+    }
    
     const renderedUsers = data.map( (user) => {
         return <div key={user.id} className="mb-2 border rounded">
@@ -32,11 +39,6 @@ function UsersList() {
         </div>
     })
 
-    if(error){
-        return <div>
-             error fetching data.....
-         </div>
-    }
     
     
     return (<div> 

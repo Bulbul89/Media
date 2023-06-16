@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
 
-function Skeleton ({ times, className}) {
+function Skeleton ({ times, className }) {
     const outerClassNames = classNames(
         "relative",
         'overflow-hidden',
